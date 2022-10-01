@@ -42,11 +42,16 @@ function showInfo(json) {
     document.querySelector('.tempMin').innerHTML = `${json.tempMin}<sup>ºC</sup>`;
     document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
     document.querySelector('.ventoPonto').style.transform = `rotate(${json.angle-90}deg)`;
-    const data = { timezone: json.hora};
-    document.querySelector('.time').innerHTML = moment().utcOffset(data.timezone / 60).format('HH:mm:ss');
-
-
+    function countryTime() {
+        const data = { timezone: json.hora};
+        document.querySelector('.time').innerHTML = moment().utcOffset(data.timezone / 60).format('HH:mm:ss');
+    }
+    countryTime();
+    setInterval(countryTime, 1000);
 };
+
+
+
 function limparInfo() {
     showWarning('');
     document.querySelector('.resultado').style.display = 'none';
