@@ -101,8 +101,7 @@ h1 {
 .tempInfo sup, 
 .tempSen sup,
 .tempMax sup,
-.tempMin sup,
-.time {
+.tempMin sup{
     font-size: 15px;
     font-weight: normal;
 }

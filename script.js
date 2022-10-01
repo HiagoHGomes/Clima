@@ -18,7 +18,8 @@ document.querySelector('.busca').addEventListener('submit', async (event)=>{
                 tempMax: json.main.temp_max,
                 tempMin: json.main.temp_min,
                 wind: json.wind.speed,
-                angle: json.wind.deg
+                angle: json.wind.deg,
+                hora: json.timezone
             });
         }else {
             limparInfo();
@@ -41,6 +42,8 @@ function showInfo(json) {
     document.querySelector('.tempMin').innerHTML = `${json.tempMin}<sup>ºC</sup>`;
     document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
     document.querySelector('.ventoPonto').style.transform = `rotate(${json.angle-90}deg)`;
+    const data = { timezone: json.hora};
+    document.querySelector('.time').innerHTML = moment().utcOffset(data.timezone / 60).format('HH:mm:ss');
 
 
 };
