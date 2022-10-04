@@ -61,3 +61,17 @@ function showWarning(msg) {
     document.querySelector('.aviso').innerHTML = msg;
 };
 
+
+let now = new Date(); //Pegar data completa
+let hour = now.getHours(); //Pegar as horas
+
+if (hour >=6 && hour <18) {
+    //DIA
+    document.querySelector('body').style.background = '#0d0e12'
+    document.querySelector('body').style.backgroundImage = 'url(images/DIA1.jpg)'
+
+}else{
+    //NOITE
+    document.querySelector('body').style.backgroundColor = '#000000'
+    document.querySelector('body').style.backgroundImage = 'url(images/noite.jpg)'
+}
